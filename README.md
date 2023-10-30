@@ -10,5 +10,5 @@ The packages on this repo will be updated once a day in order to be up-to-date w
 You can rebase to this image by running the following command:
 
 ```
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/andersrh/ostree-cachyos:silverblue-39
+rpm-ostree rebase ostree-unverified-registry:ghcr.io/andersrh/ostree-cachyos/silverblue:main-39
 ```
