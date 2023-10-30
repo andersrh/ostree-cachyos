@@ -11,6 +11,7 @@ on:
   push:
     paths:
         - 'Dockerfile'
+        - '.github/workflows/silverblue39.yml'
 
 env:
   # Use docker.io for Docker Hub if empty
@@ -109,7 +110,7 @@ jobs:
         with:
           image: ${{ steps.build_image.outputs.image }}
           tags: ${{ steps.build_image.outputs.tags }}
-          registry: ${{ steps.registry_case.outputs.lowercase }}
+          registry: ${{ env.REGISTRY }}
           username: ${{ env.REGISTRY_USER }}
           password: ${{ env.REGISTRY_PASSWORD }}
           extra-args: |
