@@ -17,7 +17,7 @@ env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: ${{ github.repository }}/silverblue
   IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
 
 
@@ -87,7 +87,7 @@ jobs:
           containerfiles: |
             ./Dockerfile
           image: ${{ env.IMAGE_NAME }}
-          tags: silverblue silverblue-39 silverblue-39.${{ steps.date.outputs.date }}
+          tags: ${{ steps.meta.outputs.tags }} ${{ steps.meta.outputs.tags }}-39 ${{ steps.meta.outputs.tags }}-39.${{ steps.date.outputs.date }}
           oci: false
           layers: false
 
