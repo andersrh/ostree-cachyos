@@ -10,3 +10,7 @@ RUN rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-
 
 RUN rpm-ostree install libcap-ng-devel procps-ng-devel uksmd-rawhide
 RUN systemctl enable uksmd.service
+
+# Clear cache, /var and /tmp and commit ostree
+RUN rm -rf /tmp/* /var/* && mkdir -p /var/tmp && chmod -R 1777 /var/tmp && \
+ostree container commit
